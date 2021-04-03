@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Flex, Spacer, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Box, Flex, Button, Grid, GridItem, Text } from "@chakra-ui/react";
 import RouterNav from "./Router";
 import { withRouter } from "next/router";
 import { ArrowLeftIcon, UnlockIcon } from "@chakra-ui/icons";
@@ -127,8 +127,20 @@ const AppSidebar = (props) => {
             fontSize="large"
             color="blue.500"
           >
-            <UnlockIcon />
-            Logout
+            <Button
+              leftIcon={<UnlockIcon />}
+              height="24px"
+              bg="white"
+              _hover="none"
+              _active={{
+                bg: "#fff",
+              }}
+              _focus={{
+                bg: "#fff",
+              }}
+            >
+              Logout
+            </Button>
           </GridItem>
           <GridItem py={2} textAlign="center" colSpan={1} bg="blue.500">
             <ArrowLeftIcon color="white" />

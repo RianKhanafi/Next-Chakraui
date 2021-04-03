@@ -14,68 +14,78 @@ export default [
   //   icon: <CalendarIcon />,
   // },
   {
-    path: "/banner",
-    name: "Kelas",
+    path: "/sekolah",
+    name: "List Sekolah",
     icon: <CalendarIcon />,
   },
   {
-    name: "Master Data",
+    path: "/siswa",
+    name: "List Siswa",
     icon: <CalendarIcon />,
-    children: [
-      {
-        path: "/m/users/admin",
-        name: "Akun Admin",
-      },
-      {
-        path: "/m/users",
-        name: "Akun Pengguna",
-      },
-      {
-        path: "/m/product_category",
-        name: "Kategori Produk",
-      },
-      {
-        path: "/m/shipping",
-        name: "Metode Pengiriman",
-      },
-      {
-        path: "/m/seller",
-        name: "Toko Penjual",
-      },
-      {
-        path: "/m/product",
-        name: "Produk",
-      },
-    ],
   },
   {
-    name: "Master",
+    path: "/mapel",
+    name: "Mata Pelajaran",
     icon: <CalendarIcon />,
-    children: [
-      {
-        path: "/m/users/admin",
-        name: "Akun Admin",
-      },
-      {
-        path: "/m/users",
-        name: "Akun Pengguna",
-      },
-      {
-        path: "/m/product_category",
-        name: "Kategori Produk",
-      },
-      {
-        path: "/m/shipping",
-        name: "Metode Pengiriman",
-      },
-      {
-        path: "/m/seller",
-        name: "Toko Penjual",
-      },
-      {
-        path: "/m/product",
-        name: "Produk",
-      },
-    ],
   },
+  // {
+  //   name: "Master Data",
+  //   icon: <CalendarIcon />,
+  //   children: [
+  //     {
+  //       path: "/m/users/admin",
+  //       name: "Akun Admin",
+  //     },
+  //     {
+  //       path: "/m/users",
+  //       name: "Akun Pengguna",
+  //     },
+  //     {
+  //       path: "/m/product_category",
+  //       name: "Kategori Produk",
+  //     },
+  //     {
+  //       path: "/m/shipping",
+  //       name: "Metode Pengiriman",
+  //     },
+  //     {
+  //       path: "/m/seller",
+  //       name: "Toko Penjual",
+  //     },
+  //     {
+  //       path: "/m/product",
+  //       name: "Produk",
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: "Master",
+  //   icon: <CalendarIcon />,
+  //   children: [
+  //     {
+  //       path: "/m/users/admin",
+  //       name: "Akun Admin",
+  //     },
+  //     {
+  //       path: "/m/users",
+  //       name: "Akun Pengguna",
+  //     },
+  //     {
+  //       path: "/m/product_category",
+  //       name: "Kategori Produk",
+  //     },
+  //     {
+  //       path: "/m/shipping",
+  //       name: "Metode Pengiriman",
+  //     },
+  //     {
+  //       path: "/m/seller",
+  //       name: "Toko Penjual",
+  //     },
+  //     {
+  //       path: "/m/product",
+  //       name: "Produk",
+  //     },
+  //   ],
+  // },
 ];

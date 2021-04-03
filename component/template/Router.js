@@ -49,7 +49,7 @@ export default [
     ],
   },
   {
-    name: "Master Data",
+    name: "Master",
     icon: <CalendarIcon />,
     children: [
       {

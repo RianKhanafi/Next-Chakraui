@@ -8,8 +8,8 @@ const AppSidebar = (props) => {
   const { router } = props;
   const { pathname } = router;
   const [height, setHeight] = useState(937);
-  const [openKeys, setOpenKeys] = useState(0);
-  const [childKey, setOpenChildKey] = useState(-1);
+  const [openKeys, setOpenKeys] = useState({ name: "", key: 0 });
+  const [childKey, setOpenChildKey] = useState({ name: "", key: -1 });
   const [appRoutes] = useState(RouterNav);
 
   let rootSubMenuKeys = [];
@@ -26,13 +26,11 @@ const AppSidebar = (props) => {
 
   useEffect(() => {
     setHeight(window.innerHeight);
-
     appRoutes.forEach((route, index) => {
       const isCurrentPath =
         pathname.indexOf(lowercase(route.name)) > -1 ? true : false;
       const key = getKey(route.name, index);
       rootSubMenuKeys.push(key);
-      //   if (isCurrentPath) setOpenKeys([...openKeys, key]);
     });
   }, []);
 
@@ -49,26 +47,34 @@ const AppSidebar = (props) => {
             <Box
               mx={4}
               p={2}
-              color={index === openKeys ? "white" : "blue.500"}
-              bg={index === openKeys ? "blue.500" : "white"}
+              color={
+                index === openKeys.key && openKeys.name === route.name
+                  ? "white"
+                  : "blue.500"
+              }
+              bg={
+                index === openKeys.key && openKeys.name === route.name
+                  ? "blue.500"
+                  : "white"
+              }
               rounded="10"
               mb="2"
               onClick={() => {
-                setOpenKeys(index === openKeys ? 0 : index);
-                // if (state.mobile) dispatch({ type: "mobileDrawer" });
+                setOpenKeys({
+                  name: route.name,
+                  key: index === openKeys.key ? 0 : index,
+                });
               }}
             >
-              {/* <Link href={route.path}> */}
               <Flex>
                 <Box className="mr-auto" mr={2}>
                   {route.icon}
                 </Box>
                 <Box className="mr-auto">{route.name}</Box>
               </Flex>
-              {/* </Link> */}
             </Box>
 
-            {openKeys === index && route.children
+            {openKeys.key === index && route.children
               ? appRoutes.map((route, iChild) => {
                   return (
                     <>
@@ -77,30 +83,30 @@ const AppSidebar = (props) => {
                         ml={8}
                         p={2}
                         color={
-                          index === openKeys && childKey === iChild
+                          index === openKeys.key && childKey.key === iChild
                             ? "white"
                             : "blue.500"
                         }
                         bg={
-                          index === openKeys && childKey === iChild
-                            ? "blue.400"
+                          index === openKeys.key && childKey.key === iChild
+                            ? "blue.300"
                             : "white"
                         }
                         rounded="10"
                         mb="2"
                         onClick={() => {
-                          setOpenChildKey(childKey === iChild ? -1 : iChild);
-                          // if (state.mobile) dispatch({ type: "mobileDrawer" });
+                          setOpenChildKey({
+                            name: route.name,
+                            key: childKey.key === iChild ? -1 : iChild,
+                          });
                         }}
                       >
-                        {/* <Link href={route.path}> */}
                         <Flex>
                           <Box className="mr-auto" mr={2}>
                             {route.icon}
                           </Box>
                           <Box className="mr-auto">{route.name}</Box>
                         </Flex>
-                        {/* </Link> */}
                       </Box>
                     </>
                   );
